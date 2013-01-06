@@ -34,7 +34,7 @@ __('The idle size for the Favicon icon is 16x16 or 32x32, with a max of 128x128.
 	</p>
 	<?php
 	 if(isset($faviconSetup) && isset($faviconSetup['state']) && $faviconSetup['state'] == 1 && $state != 2) {
-	 	echo '<br /><p>' . __('Note: You already have a Favicon configured. Upadating the setup will replace the older Favicon.', 'genie-wp-favicon') . '<br />' .
+	 	echo '<br /><p>' . __('Note: You already have a Favicon configured. Updating the setup will replace the older Favicon.', 'genie-wp-favicon') . '<br />' .
 	 			"<br />" . __('Current Favicon: ', 'genie-wp-favicon') . "<br /><img src='" . GWPF_FAVICON_URL . URL_S . $faviconSetup['name'] . "' alt='Favicon' /></p>";
 	 } else if( isset($faviconSetup) && $state) {
 	 	echo "<br /><p>" . __('Updated Favicon: ', 'genie-wp-favicon') . "<br /><img src='" . GWPF_FAVICON_URL . URL_S . $faviconSetup['name'] . "' alt='Favicon' /></p>" ;
