@@ -54,7 +54,7 @@ if (!defined('GWPF_ROOT'))
 define('GWPF_FAVICON_DIR', WP_CONTENT_DIR . URL_S . 'uploads' . URL_S . 'gwpf_icon');
 define('GWPF_FAVICON_URL', WP_CONTENT_URL . URL_S . 'uploads' . URL_S . 'gwpf_icon');
 
-load_plugin_textdomain( 'genie_wp_favicon', false, basename( dirname( __FILE__ ) ) );
+load_plugin_textdomain( 'genie-wp-favicon', false, basename( dirname( __FILE__ ) ) . '/i18n' );
 
 global $genieWPFaviconController;
 global $gwpf_setup_model;

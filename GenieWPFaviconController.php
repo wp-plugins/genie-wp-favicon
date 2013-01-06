@@ -44,8 +44,8 @@ class GenieWPFaviconController {
 		$faviconName = stripslashes(get_option('gwpf_favicon'));
 		echo "<!-- Start Genie WP Favicon -->\n" ;
 		if (isset($faviconName) && $faviconName != null) {
-			echo '<link rel="shortcut icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" /> \n';
-			echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" /> \n';
+			echo '<link rel="shortcut icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";
+			echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";
 		} else {
 			echo "<!-- Favicon not updated-->\n";
 		}
@@ -55,8 +55,8 @@ class GenieWPFaviconController {
 		$faviconName = stripslashes(get_option('gwpf_favicon'));
 		echo "<!-- Start Genie WP Favicon admin -->\n" ;
 		if (isset($faviconName) && $faviconName != null) {
-			echo '<link rel="shortcut icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" /> \n';
-			echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" /> \n' ;
+			echo '<link rel="shortcut icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />'. "\n";
+			echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";
 		} else {
 			echo "<!-- Favicon not updated-->\n";
 		}

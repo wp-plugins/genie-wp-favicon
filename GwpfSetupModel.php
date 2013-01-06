@@ -42,13 +42,13 @@ class GwpfSetupModel {
 		}
 		list ($width, $height) = getimagesize($photo["tmp_name"]);
 		if (!isset ($pType)) {
-			$errorMsg .= "Upload of profile photo failed: Image object is empty or invalid image type (Only .ico, .png, .png allowed).  " ;
+			$errorMsg .= __("Upload of profile photo failed: Image object is empty or invalid image type (Only .ico, .png, .png allowed). ", 'genie-wp-favicon') ;
 			$errorOccured = true;
 		} else if($photo["size"] > (100 * 1024)) {
-			$errorMsg .=  "Upload of profile photo failed: Image size greater than 100 Kb. " ;
+			$errorMsg .=  __("Upload of profile photo failed: Image size greater than 100 Kb. ", 'genie-wp-favicon') ;
 			$errorOccured = true;
 		} else if($width > 128 || $height > 128) {
-			$errorMsg .=  "Upload of profile photo failed: Image width or height greater than 128. " ;
+			$errorMsg .=  __("Upload of profile photo failed: Image width or height greater than 128. ", 'genie-wp-favicon') ;
 			$errorOccured = true;
 		} else {
 			if ($photo["error"] > 0) {
