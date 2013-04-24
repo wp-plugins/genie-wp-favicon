@@ -23,7 +23,7 @@ class GwpfSetupModel {
 		return $favicon ;
 	}
 
-	function savePhotoToUploadFolder($photo) {
+	function savePhotoToUploadFolder($photo, $doPreserve) {
 
 		$photoId = "favicon";
 		$errorOccured = false; 
@@ -57,6 +57,8 @@ class GwpfSetupModel {
 			} else {
 				$uploadURL = GWPF_FAVICON_DIR . URL_S ;
 				$photo["name"] = $photoId . $photoEXT;
+				if($doPreserve)
+					$photo["apple_name"] = $photoId . '-precomposed' . $photoEXT;
 
 				if (!is_dir(WP_CONTENT_DIR . URL_S . 'uploads')) {
 					mkdir(WP_CONTENT_DIR . URL_S . 'uploads', 0755);
@@ -79,9 +81,28 @@ class GwpfSetupModel {
 				if (file_exists($uploadURL . $photoId . ".png")) {
 					unlink($uploadURL . $photoId . ".png");
 				}
+				if (file_exists($uploadURL . $photoId . '-precomposed' . ".gif")) {
+					unlink($uploadURL . $photoId . '-precomposed' . ".gif");
+				}
+				if (file_exists($uploadURL . $photoId . '-precomposed' . ".ico")) {
+					unlink($uploadURL . $photoId . '-precomposed' . ".ico");
+				}
+				if (file_exists($uploadURL . $photoId . '-precomposed' . ".png")) {
+					unlink($uploadURL . $photoId . '-precomposed' . ".png");
+				}
 				
 				move_uploaded_file($photo["tmp_name"], $uploadURL . $photo["name"]);
 				update_option('gwpf_favicon', $photo["name"]);
+				if($doPreserve) {
+					if (copy($uploadURL . $photo["name"], $uploadURL . $photo["apple_name"])) {
+						update_option('gwpf_favicon_preserve_on_apple', $photo["apple_name"]);
+					} else {
+						$errorMsg .= ("Failed to create processed Apple Favicon.");
+						$errorOccured = true;
+					}
+				} else {
+					delete_option("gwpf_favicon_preserve_on_apple");
+				}
 				unset ($photo["tmp_name"]);
 			}
 		}

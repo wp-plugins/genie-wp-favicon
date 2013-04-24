@@ -42,10 +42,14 @@ class GenieWPFaviconController {
 	}
 	function gwpf_wp_head() {
 		$faviconName = stripslashes(get_option('gwpf_favicon'));
+		$apple_faviconName = stripslashes(get_option('gwpf_favicon_preserve_on_apple'));
 		echo "<!-- Start Genie WP Favicon -->\n" ;
 		if (isset($faviconName) && $faviconName != null) {
 			echo '<link rel="shortcut icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";
-			echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";
+			if(isset($apple_faviconName))
+				echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $apple_faviconName . '" />' . "\n";
+			else 
+				echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . "\n";	
 		} else {
 			echo "<!-- Favicon not updated-->\n";
 		}

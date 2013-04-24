@@ -14,8 +14,9 @@ $state = null;
 
 if (isset($_POST['plugin_submitted']) && $_POST['plugin_submitted'] == 'Y') {
 	$photoObj = $_FILES["gwpf_favicon_img"] ;
+	$doPreserve = isset($_POST['gwpf_preserve_on_apple']) && $_POST['gwpf_preserve_on_apple']  ? 1 : 0; 	
 	if( $photoObj["size"] != 0 ) {
-		$value = $gwpfSetupModel->savePhotoToUploadFolder($photoObj);
+		$value = $gwpfSetupModel->savePhotoToUploadFolder($photoObj, $doPreserve);
 		echo '<br /><div class="updated"><p>' . __('Favicon updated successfully.', 'genie-wp-favicon') . '</p></div>' ;
 	}
 	$state = 2 ;
@@ -29,8 +30,9 @@ __('The idle size for the Favicon icon is 16x16 or 32x32, with a max of 128x128.
 <form name="gwpf_form" method="post" enctype="multipart/form-data"
 			 action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" >
 	<p><?php    echo "<h4>" . __( 'Select Favicon: ', 'genie-wp-favicon' ) . "</h4>"; ?>
-	<input type="file" name="gwpf_favicon_img" id="gwpf_favicon_img" /> &nbsp; <strong>(.ico, .png, .gif - 100Kb Max)</strong>
-	<input type="hidden" name="plugin_submitted" id="plugin_submitted" value="Y">
+	<input type="file" name="gwpf_favicon_img" id="gwpf_favicon_img" /> &nbsp; <strong>(.ico, .png, .gif - 100Kb Max)</strong><br /><br />	
+    <input type="checkbox" name="gwpf_preserve_on_apple" value="1" /> &nbsp; <?php echo __('Preserve icon format in Apple devices (Disable Apple Gloss effect on image).') ; ?>
+    <input type="hidden" name="plugin_submitted" id="plugin_submitted" value="Y">
 	</p>
 	<?php
 	 if(isset($faviconSetup) && isset($faviconSetup['state']) && $faviconSetup['state'] == 1 && $state != 2) {
