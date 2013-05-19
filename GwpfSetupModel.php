@@ -16,14 +16,24 @@ class GwpfSetupModel {
 		global $wpdb;
 		$favicon = array();
 		$faviconName = get_option('gwpf_favicon');
+		$apple_faviconName = get_option('gwpf_favicon_preserve_on_apple');
+		$promotepage = get_option('gwpf_show_webid');
 		if(isset($faviconName) && $faviconName != "") {
 			$favicon['state'] = 1 ;
 			$favicon['name'] = $faviconName ;
+			$date = new DateTime();
+			$favicon['timestamp'] = $date->getTimestamp();
+			if(isset($apple_faviconName) && $apple_faviconName != "") {
+				$favicon['apple_name'] = $apple_faviconName ;
+			}
+			if(isset($promotepage) && $promotepage != "") {
+				$favicon['show_webid'] = $promotepage ;
+			}
 		}
 		return $favicon ;
 	}
 
-	function savePhotoToUploadFolder($photo, $doPreserve) {
+	function savePhotoToUploadFolder($photo, $doPreserve, $doPromote) {
 
 		$photoId = "favicon";
 		$errorOccured = false; 
@@ -97,11 +107,16 @@ class GwpfSetupModel {
 					if (copy($uploadURL . $photo["name"], $uploadURL . $photo["apple_name"])) {
 						update_option('gwpf_favicon_preserve_on_apple', $photo["apple_name"]);
 					} else {
-						$errorMsg .= ("Failed to create processed Apple Favicon.");
+						$errorMsg .= __("Failed to create processed Apple Favicon.");
 						$errorOccured = true;
 					}
 				} else {
 					delete_option("gwpf_favicon_preserve_on_apple");
+				}
+				if($doPromote) {
+					update_option('gwpf_show_webid', 1);
+				} else {
+					delete_option("gwpf_show_webid");
 				}
 				unset ($photo["tmp_name"]);
 			}
