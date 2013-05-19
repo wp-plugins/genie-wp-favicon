@@ -58,5 +58,5 @@ Yes, it adds the favicon icon to the Apple Touch devices also.
 
 = 0.4 =
 
-1. Bugs with the Apple Touch device support fixed - Thanks @MonkeyKing for support
+1. Bugs with the Apple Touch device support fixed - Thanks @MonkeyKong for support
 2. Request for plugin promotion added 
