@@ -52,7 +52,7 @@ class GenieWPFaviconController {
 			else 
 				echo '<link rel="apple-touch-icon" href="' . GWPF_FAVICON_URL . URL_S . $faviconName . '" />' . PHP_EOL ;
 			if(isset($showWebId) && $showWebId != null && $showWebId != "") {
-				echo 'Plugin provided by ITechgenie.com - http://itechgenie.com/myblog/genie-wp-favicon/' . PHP_EOL ;
+				echo '<!-- Plugin provided by ITechgenie.com - http://itechgenie.com/myblog/genie-wp-favicon/  -->' . PHP_EOL ;
 			}
 		} else {
 			echo "<!-- Favicon not updated - Raise support ticket @ http://wordpress.org/support/plugin/genie-wp-favicon -->\n";
