@@ -21,8 +21,10 @@ class GwpfSetupModel {
 		if(isset($faviconName) && $faviconName != "") {
 			$favicon['state'] = 1 ;
 			$favicon['name'] = $faviconName ;
-			$date = new DateTime();
-			$favicon['timestamp'] = $date->getTimestamp();
+			// Adding backward compatibility for PHP 4
+			// $date = new DateTime();
+			// $favicon['timestamp'] = $date->getTimestamp();
+			$favicon['timestamp'] = time() . 'gwpf' ;
 			if(isset($apple_faviconName) && $apple_faviconName != "") {
 				$favicon['apple_name'] = $apple_faviconName ;
 			}
