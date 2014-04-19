@@ -4,7 +4,7 @@ Contributors: prakashm88
 Donate link: http://www.itechgenie.com/
 Tags: favicon, shortcut icon, genie wp favicon, apple touch icon
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.9
 Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

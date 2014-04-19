@@ -24,7 +24,7 @@ if (isset($_POST['plugin_submitted']) && $_POST['plugin_submitted'] == 'Y') {
 }
 
 $faviconSetup = $gwpfSetupModel->getFaviconState() ;
-echo '<br /><strong>The Genie WP Favicon ' . __('does saves the images "as is" what ever you upload. It does not process the images in any sort.', 'genie-wp-favicon') . '<br />' .
+echo '<br /><strong>The Genie WP Favicon ' . __('does saves the images "as is" what ever you upload. It does not process the images in any manner.', 'genie-wp-favicon') . '<br />' .
 __('The idle size for the Favicon icon is 16x16 or 32x32, with a max of 128x128. Make sure to process the image before uploading.', 'genie-wp-favicon') . '<br /></strong>' ;
 
 ?>
