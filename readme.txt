@@ -4,8 +4,8 @@ Contributors: prakashm88
 Donate link: http://www.itechgenie.com/
 Tags: favicon, shortcut icon, genie wp favicon, apple touch icon
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 0.4
+Tested up to: 4.3
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,19 +44,29 @@ Yes, it adds the favicon icon to the Apple Touch devices also.
 
 == Changelog ==
 
-= 0.1 =
+= 0.5 = 
 
-1. Initial commit
-
-= 0.2 = 
-
-1. Bugs fixed
-
-= 0.3 =
-
-1. Option to disable Apple's gloss effect on image and preserve the user effects
+1. PHP deprecated methods removed
+2. compatibility with 4.3 verified
 
 = 0.4 =
 
 1. Bugs with the Apple Touch device support fixed - Thanks @MonkeyKong for support
 2. Request for plugin promotion added 
+
+= 0.3 =
+
+1. Option to disable Apple's gloss effect on image and preserve the user effects
+
+= 0.2 = 
+
+1. Bugs fixed
+
+= 0.1 =
+
+1. Initial commit
+
+
+
+
+

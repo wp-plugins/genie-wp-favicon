@@ -4,13 +4,13 @@
 Plugin Name: Genie WP Favicon
 Plugin URI: http://www.itechgenie.com/myblog/genie-wp-favicon
 Description: The Genie WP Favicon will be helpful in adding a favicon to any Wordpress site with ease. 
-Version: 0.4
+Version: 0.5
 Author: prakashm88
 Author URI: http://www.itechgenie.com
 License: GPLv2
 */
 
-/*  Copyright 2012  prakashm88
+/*  Copyright 2012-2015  prakashm88
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
